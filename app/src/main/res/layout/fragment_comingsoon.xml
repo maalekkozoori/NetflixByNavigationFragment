@@ -6,15 +6,33 @@
     android:layout_height="match_parent"
     android:background="@color/black">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Coming Soon"
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="153dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/netflix" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="665dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/white"
-        android:textSize="40sp"/>
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/comingsoon_list"
+            android:id="@+id/rvComingSoon"/>
+
+
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
