@@ -3,11 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Learning/Android Projects/NetflixByNavigationFragment/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Learning/Android Projects/NetflixByNavigationFragment/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.246" />
+        <entry key="..\:/Learning/Android Projects/NetflixByNavigationFragment/app/src/main/res/layout/activity_main.xml" value="0.17272727272727273" />
         <entry key="..\:/Learning/Android Projects/NetflixByNavigationFragment/app/src/main/res/layout/comingsoon_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Learning/Android Projects/NetflixByNavigationFragment/app/src/main/res/layout/favorites_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Learning/Android Projects/NetflixByNavigationFragment/app/src/main/res/layout/fragment_comingsoon.xml" value="0.20416666666666666" />
-        <entry key="..\:/Learning/Android Projects/NetflixByNavigationFragment/app/src/main/res/layout/fragment_favorite.xml" value="0.20416666666666666" />
-        <entry key="..\:/Learning/Android Projects/NetflixByNavigationFragment/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Learning/Android Projects/NetflixByNavigationFragment/app/src/main/res/layout/fragment_favorite.xml" value="0.15" />
+        <entry key="..\:/Learning/Android Projects/NetflixByNavigationFragment/app/src/main/res/layout/fragment_home.xml" value="0.11149825783972125" />
         <entry key="..\:/Learning/Android Projects/NetflixByNavigationFragment/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
         <entry key="..\:/Learning/Android Projects/NetflixByNavigationFragment/app/src/main/res/layout/fragment_signin.xml" value="0.20416666666666666" />
         <entry key="..\:/Learning/Android Projects/NetflixByNavigationFragment/app/src/main/res/layout/list_item.xml" value="0.21" />

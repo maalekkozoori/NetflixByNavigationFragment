@@ -3,12 +3,18 @@ package android.example.netflixbynavigationfragment
 import android.example.netflixbynavigationfragment.databinding.ActivityMainBinding
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+
+
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -18,5 +24,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.container_fragment)
 
         binding.bottomNavigationView.setupWithNavController(navController)
+
+
     }
 }

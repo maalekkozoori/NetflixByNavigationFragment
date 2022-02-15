@@ -7,35 +7,43 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.compose.animation.core.updateTransition
 import java.util.ArrayList
 import androidx.recyclerview.widget.RecyclerView
 
-class ComingSoonAdapter(private val context: Context, private val list: ArrayList<MoviesInfo>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FavoritesAdapter(private val context: Context, private val list: ArrayList<MoviesInfo>) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private inner class ViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var tvTitle: TextView
-        var imgThumb : ImageView
-        var shareIcon : ImageView
-        lateinit var itemBackground : LinearLayout
+        var imgThumb: ImageView
+        var isFavorite: ImageView
+        lateinit var itemBackground: LinearLayout
+
+
         init {
             tvTitle = itemView.findViewById(R.id.tvTitle)
             imgThumb = itemView.findViewById(R.id.imgThumb)
-            shareIcon = itemView.findViewById(R.id.isFavoritsIcon)
+            isFavorite = itemView.findViewById(R.id.isFavoritsIcon)
             itemBackground = itemView.findViewById(R.id.linearBackground)
 
         }
 
         fun bind(position: Int) {
+
             tvTitle.text = list[position].title
             imgThumb.setImageResource(list[position].thumbRes)
             itemBackground.setBackgroundResource(list[position].thumbRes)
+
 
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.comingsoon_list, parent, false))
+        return ViewHolder(
+            LayoutInflater.from(context).inflate(R.layout.favorites_list, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

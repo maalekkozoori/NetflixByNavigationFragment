@@ -16,13 +16,14 @@ import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     lateinit var binding: FragmentProfileBinding
     lateinit var sharedPreferences: SharedPreferences
-    private val viewModel: MoviesDataBase by viewModels()
+    val sharedViewModel: MoviesDataBase by activityViewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentProfileBinding.bind(view)
@@ -71,18 +72,19 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         binding.btnLogout.setOnClickListener {
             with(binding){
-                if (viewModel.registerStatus){
+                if (sharedViewModel.registerStatus){
                     sharedPreferences.edit().clear().apply()
                     val clean: Editable?  = null
                     tvUsarename.text = clean
-                    imgProfile.setImageResource(0)
+                    //imgProfile.isVisible = false
                 }else{
                     btnEditProfile.isVisible = false
                     tvUsarename.isVisible = false
                     btnLogout.text = "Sign In"
-                    viewModel.registerStatus = false
+                    sharedViewModel.registerStatus = false
                     edUserName.isVisible = true
                     edPass.isVisible = true
+                    imgProfile.isVisible = false
 
                 }
             }
