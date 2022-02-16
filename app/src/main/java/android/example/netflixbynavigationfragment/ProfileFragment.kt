@@ -18,16 +18,17 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     lateinit var binding: FragmentProfileBinding
     lateinit var sharedPreferences: SharedPreferences
-    val sharedViewModel: MoviesDataBase by activityViewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentProfileBinding.bind(view)
 
+        val sharedViewModel = ViewModelProvider(requireActivity()).get(MoviesDataBase::class.java)
         sharedPreferences =
             requireContext().getSharedPreferences("RegisterInfo", Context.MODE_PRIVATE)
 
@@ -71,6 +72,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
 
         binding.btnLogout.setOnClickListener {
+
             with(binding){
                 if (sharedViewModel.registerStatus){
                     sharedPreferences.edit().clear().apply()

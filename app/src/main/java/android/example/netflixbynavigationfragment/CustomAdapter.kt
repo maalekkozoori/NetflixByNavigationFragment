@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 
-class CustomAdapter(private val context: Context, private val list: ArrayList<MoviesInfo>, val onClickAction: (Int) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CustomAdapter(private val context: Context, private val list: ArrayList<MoviesInfo>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
     private var listData : ArrayList<MoviesInfo> = list as ArrayList<MoviesInfo>

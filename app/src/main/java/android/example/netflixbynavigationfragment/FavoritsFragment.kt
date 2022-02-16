@@ -2,6 +2,7 @@ package android.example.netflixbynavigationfragment
 
 import CustomAdapter
 import FavoritesAdapter
+import android.app.Activity
 import android.content.Context
 import android.example.netflixbynavigationfragment.databinding.FragmentFavoriteBinding
 import android.os.Bundle
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -21,31 +23,25 @@ import androidx.recyclerview.widget.RecyclerView
 class FavoritesFragment : Fragment(R.layout.fragment_favorite) {
 
     lateinit var binding: FragmentFavoriteBinding
-    val sharedViewModel: MoviesDataBase by activityViewModels()
-    lateinit var customAdapter: CustomAdapter
+    lateinit var customAdapter: FavoritesAdapter
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentFavoriteBinding.bind(view)
 
+        val sharedViewModel = ViewModelProvider(requireActivity()).get(MoviesDataBase::class.java)
 
-
-
-        println(sharedViewModel.moviesList.filter { it.isFavorite })
-
-
-        favoritesList(ArrayList(sharedViewModel.moviesList.filter { it.isFavorite }))
-
-
+        favoritesList(sharedViewModel)
 
     }
 
 
 
 
-    private fun favoritesList(list : ArrayList<MoviesInfo>) {
+    private fun favoritesList(viewModel : MoviesDataBase) {
 
-//        var m = viewModel.moviesList.filter { it.isFavorite }
-        customAdapter = CustomAdapter(requireContext(), list , {index -> deleteItem(index)})
+
+        var m = viewModel.moviesList.filter { it.isFavorite }
+        customAdapter = FavoritesAdapter(requireContext(),ArrayList(viewModel.moviesList.filter { it.isFavorite }) )
         binding.rvFavorites.adapter = customAdapter
         binding.rvFavorites.layoutManager =
             LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
